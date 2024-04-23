@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+# Simplified Trello Board
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[Project Link](https://react-trello-board.vercel.app/)
 
-Currently, two official plugins are available:
+## Stack
+- TypeScript
+- Sass
+- React
+- Redux Toolkit
+- React Hook Form
+- Redux Persist
+- Git-flow
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Build & Deploy
+- Vite
+- Vercel
 
-## Expanding the ESLint configuration
+## Features
+- Redux Persist for storing data between page reloads
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Functionality
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Popup with input from the current board user
+- Shared board with 4 columns by default
+- Ability to change the names of the columns
+- Ability to add a card to a column
+- Card to column displays: author, card title, number of comments on the card
+- Ability to open popup card with details by clicking on it
+- Card contains information: author, column, title, description, comments
+- You can add, change, delete title and description in a card
+- In a card you can add, change, delete a comment
+- Comment shows the author and the text of the comment
+- Card can be deleted by clicking the delete button
+- Card popup closes by pressing Close or Esc button.
