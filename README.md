@@ -32,3 +32,9 @@
 - Comment shows the author and the text of the comment
 - Card can be deleted by clicking the delete button
 - Card popup closes by pressing Close or Esc button.
+
+## How to start the project
+
+- _**git clone git@github.com:VictoryPashkova/react_trello-board.git**_ to copy the repository to your computer
+- _**npm install**_ to install all dependencies
+- _**npm run dev**_ to run local server
