@@ -28,10 +28,17 @@ type Columns = {
   newTitle?: string;
 };
 
+type Users = {
+  userName?: string;
+  userColor?: string;
+  userId?: number;
+};
+
 type CardsState = {
   cards: Card[];
   comments: Comment[];
   columns: Columns[];
+  users: Users[];
 };
 
 const initialState: CardsState = {
@@ -43,6 +50,7 @@ const initialState: CardsState = {
     { columnId: 3, columnTitle: 'Testing' },
     { columnId: 4, columnTitle: 'Done' },
   ],
+  users: [],
 };
 
 const cardSlice = createSlice({
@@ -72,6 +80,11 @@ const cardSlice = createSlice({
         return card;
       });
       return { ...state, cards: updatedCards };
+    },
+    addNewUser: (state, action: PayloadAction<Users>) => {
+      const { userName, userColor, userId } = action.payload;
+      const updatedUsers = [...state.users, { userName, userColor, userId }];
+      return { ...state, users: updatedUsers };
     },
     changeCardDescription: (state, action: PayloadAction<Card>) => {
       const { newDescription, cardId } = action.payload;
@@ -166,6 +179,7 @@ export const {
   changeComment,
   removeComment,
   reorderCards,
+  addNewUser,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;

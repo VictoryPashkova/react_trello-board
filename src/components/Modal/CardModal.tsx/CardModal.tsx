@@ -99,7 +99,7 @@ const CardModal: React.FC<CardModalProps> = ({ id }) => {
       }
     };
 
-    const handleClickOutsideModal = (event: MouseEvent) => {
+    const handleClickOutsideModal = (event: MouseEvent): void => {
       if (modalsState.cardModal === false) {
         return;
       }

@@ -150,6 +150,22 @@ img {
   max-height: 100%;
 }
 
+.user-ava {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: $main-text-color;
+  color: $column-bg-color;
+  font-weight: 500;
+  text-align: center;
+  line-height: 30px;
+}
+
+.card-content {
+  display: flex;
+}
+
 header {
   display: flex;
   margin-left: 0;
