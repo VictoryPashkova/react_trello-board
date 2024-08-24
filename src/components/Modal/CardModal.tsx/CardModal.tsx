@@ -1,5 +1,5 @@
 import uniqueId from 'lodash.uniqueid';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -42,6 +42,8 @@ const CardModal: React.FC<CardModalProps> = ({ id }) => {
     descriptionFormActive: false,
     descriptionBtnActive: true,
   });
+
+  const modalRef = useRef<HTMLDivElement>(null);
 
   const setControlTitleState = (isFormActive: boolean, isBtnActive: boolean) => {
     setTitleItemsState({ titleFormActive: isFormActive, titleBtnActive: isBtnActive });
@@ -97,16 +99,27 @@ const CardModal: React.FC<CardModalProps> = ({ id }) => {
       }
     };
 
+    const handleClickOutsideModal = (event: MouseEvent) => {
+      if (modalsState.cardModal === false) {
+        return;
+      }
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        handleCloseCard();
+      }
+    };
+
     document.addEventListener('keydown', handleEscape);
+    document.addEventListener('mousedown', handleClickOutsideModal);
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
+      document.addEventListener('mousedown', handleClickOutsideModal);
     };
-  }, []);
+  }, [dispatch, handleCloseCard, currentCard.cardId]);
 
   return (
     <div className={`modal-content ${modalsState.cardModal === false ? 'disabled' : ''}`}>
-      <div className="modal-card-container" id={id}>
+      <div className="modal-card-container" id={id} ref={modalRef}>
         <Button
           text="close"
           styleBtnText="close"

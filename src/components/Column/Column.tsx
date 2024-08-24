@@ -1,4 +1,3 @@
-import uniqueId from 'lodash.uniqueid';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -22,7 +21,6 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
   const comments = useSelector(selectComments);
   const userName = useSelector(selectUser);
   const currentColumnCards = cards.filter((card) => card.columnId === columnId);
-  console.log(cards)
 
   const [addNewCardFormDisabled, setAddNewCardFormDisabled] = useState(true);
   const [titleFormDisabled, setTitleFormDisabled] = useState(true);

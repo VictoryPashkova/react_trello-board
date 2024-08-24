@@ -122,6 +122,36 @@ const cardSlice = createSlice({
       );
       return { ...state, comments: updatedComments };
     },
+    reorderCards: (state, action) => {
+      const {
+        sourceColumnId,
+        destinationColumnId,
+        sourceIndex,
+        destinationIndex,
+      } = action.payload;
+    
+      // Найти карточки в исходной и целевой колонках
+      const sourceColumnCards = state.cards.filter(card => card.columnId === sourceColumnId);
+      const destinationColumnCards = state.cards.filter(card => card.columnId === destinationColumnId);
+    
+      // Найти карточку, которую перемещаем
+      const [movedCard] = sourceColumnCards.splice(sourceIndex, 1);
+    
+      // Обновить columnId карточки, если она перемещена в другую колонку
+      if (sourceColumnId !== destinationColumnId) {
+        movedCard.columnId = destinationColumnId;
+      }
+    
+      // Вставить карточку в новое место в целевой колонке
+      destinationColumnCards.splice(destinationIndex, 0, movedCard);
+    
+      // Обновить общий массив карточек
+      state.cards = [
+        ...state.cards.filter(card => card.columnId !== sourceColumnId && card.columnId !== destinationColumnId),
+        ...sourceColumnCards,
+        ...destinationColumnCards,
+      ];
+    },
   },
 });
 
@@ -135,6 +165,7 @@ export const {
   addComment,
   changeComment,
   removeComment,
+  reorderCards,
 } = cardSlice.actions;
 
 export default cardSlice.reducer;
