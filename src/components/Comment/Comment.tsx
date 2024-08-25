@@ -1,9 +1,52 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 
 import { changeComment, removeComment } from '../../redux/reducers/app/cardsSlice';
 import Button from '../../uikit/Button/Button';
 import Form from '../Form/Form';
+
+type UserCommentItemProps = {
+  isdisabled: boolean;
+};
+
+const CommentItemStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+`;
+
+const UserNameStyles = styled.div`
+  font-weight: 700;
+`;
+
+const UserCommentItemStyles = styled.div<UserCommentItemProps>`
+  background-color: #e1e8f0;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #f5f5f5;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  font-weight: 300;
+  font-size: 80%;
+  
+  &.disabled {
+    background-color: #e0e0e0;
+    color: #888;
+  }
+`;
+
+const CommentControlStyles = styled.div`
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+`;
+
+
 
 type CommentProps = {
   userName: string;
@@ -43,14 +86,10 @@ const Comment: React.FC<CommentProps> = ({ userName, commentText, id }) => {
   };
 
   return (
-    <div className="comment-item" id={id.toString()}>
-      <div className="user-name-text">{userName}</div>
-      <div
-        className={`user-comment-item ${commentControlItemsState.commentBtnActive ? '' : 'disabled'}`}
-      >
-        <span>{commentText}</span>
-      </div>
-      <div className="comment-control">
+    <CommentItemStyles id={id.toString()}>
+      <UserNameStyles>{userName}</UserNameStyles>
+      <UserCommentItemStyles isdisabled={commentControlItemsState.commentFormActive}><span>{commentText}</span></UserCommentItemStyles>
+      <CommentControlStyles>
         <Button
           text="Изменить"
           isDisabled={commentControlItemsState.commentFormActive}
@@ -63,7 +102,7 @@ const Comment: React.FC<CommentProps> = ({ userName, commentText, id }) => {
           handleClick={handleRmComment}
           type="button"
         />
-      </div>
+      </CommentControlStyles>
       <Form
         type="text"
         placeholder="Change comment"
@@ -73,7 +112,7 @@ const Comment: React.FC<CommentProps> = ({ userName, commentText, id }) => {
         handleCancel={() => setFormState(false, true)}
         defaultValue={commentValue}
       />
-    </div>
+    </CommentItemStyles>
   );
 };
 
