@@ -29,6 +29,40 @@ const UserName = styled.div<{ bgColor: string }>`
   border-radius: 5px;
 `;
 
+const CardStyles = styled.div`
+  height: auto;
+  border-radius: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+  cursor: pointer;
+  overflow: hidden;
+  border: 2px solid transparent;
+  &:hover {
+    border-color: blue;
+    transition: border 0.7s ease-in-out;
+  }
+`;
+
+const CardComments = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+  flex-wrap: wrap;
+`;
+
+const CardCommentsValue = styled.p`
+  font-size: small;
+  padding: 0;
+  margin: 0;
+  font-weight: 300;
+`;
+
 type CardProps = {
   id: number;
 };
@@ -55,20 +89,20 @@ const Card: React.FC<CardProps> = ({ id }) => {
   };
 
   return (
-    <div className="card" id={id}>
+    <CardStyles id={id.toString()}>
       <UserAvatar bgColor={`#${userColor}`}>
-          {currentCard.author.slice(0, 1).toLocaleUpperCase()}
-        </UserAvatar>
+        {currentCard.author.slice(0, 1).toLocaleUpperCase()}
+      </UserAvatar>
       <button onClick={handleOpenCardModal} type="button">
-        <div className="card-info">
+        <div>
           <p>{currentCard.title}</p>
-          <div className="card-comments">
-          <p className="card-comments-value">{commentCommentsNumber}</p>
-        </div>
-        <UserName bgColor={`#${userColor}`}>{currentCard.author}</UserName>
+          <CardComments>
+            <CardCommentsValue>{commentCommentsNumber}</CardCommentsValue>
+          </CardComments>
+          <UserName bgColor={`#${userColor}`}>{currentCard.author}</UserName>
         </div>
       </button>
-    </div>
+    </CardStyles>
   );
 };
 

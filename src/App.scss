@@ -113,31 +113,31 @@ img {
   border: 2px solid transparent;
 }
 
-.card:hover {
-  border-color: $card-border-color;
-  transition: border 0.7s ease-in-out;
-}
+// .card:hover {
+//   border-color: $card-border-color;
+//   transition: border 0.7s ease-in-out;
+// }
 
-.card-comments {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+// .card-comments {
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   flex-direction: row;
+//   gap: 10px;
+//   flex-wrap: wrap;
+// }
 
-.card-comments-value {
-  font-size: small;
-  padding: 0;
-  margin: 0;
-  font-weight: 300;
-}
+// .card-comments-value {
+//   font-size: small;
+//   padding: 0;
+//   margin: 0;
+//   font-weight: 300;
+// }
 
-.column-title-text {
-  font-size: 16px;
-  font-weight: 700;
-}
+// .column-title-text {
+//   font-size: 16px;
+//   font-weight: 700;
+// }
 
 .img-container {
   width: 30px;
@@ -150,21 +150,21 @@ img {
   max-height: 100%;
 }
 
-.user-ava {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: $main-text-color;
-  color: $column-bg-color;
-  font-weight: 500;
-  text-align: center;
-  line-height: 30px;
-}
+// .user-ava {
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50%;
+//   overflow: hidden;
+//   background-color: $main-text-color;
+//   color: $column-bg-color;
+//   font-weight: 500;
+//   text-align: center;
+//   line-height: 30px;
+// }
 
-.card-content {
-  display: flex;
-}
+// .card-content {
+//   display: flex;
+// }
 
 header {
   display: flex;
