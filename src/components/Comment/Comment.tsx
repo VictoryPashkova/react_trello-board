@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
@@ -76,17 +76,20 @@ const Comment: React.FC<CommentProps> = ({ userName, commentText, id }) => {
     setCommentValue('');
   };
 
-  const handleRmComment = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const targetElement = e.target as HTMLElement;
-    const closestComment = targetElement.closest('.comment-item');
-    if (closestComment) {
-      const commentId = Number(closestComment.id);
+  const commentRef = useRef<HTMLDivElement>(null);
+
+  const handleRmComment = () => {
+    let commentId;
+    if (commentRef.current) {
+      commentId = Number(commentRef.current.id);
+    }
+    if (commentId) {
       dispatch(removeComment({ commentId }));
     }
   };
 
   return (
-    <CommentItemStyles id={id.toString()}>
+    <CommentItemStyles id={id.toString()} ref={commentRef}>
       <UserNameStyles>{userName}</UserNameStyles>
       <UserCommentItemStyles isdisabled={commentControlItemsState.commentFormActive}><span>{commentText}</span></UserCommentItemStyles>
       <CommentControlStyles>
