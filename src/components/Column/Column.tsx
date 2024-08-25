@@ -79,6 +79,10 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
   };
 
   const handleSubmitChangeTitle = (formData: { title: string }) => {
+    if (!formData.title) {
+      setTitleFormDisabled(true);
+      return;
+    }
     dispatch(changeColumnTitle({ newTitle: formData.title, columnId }));
     setTitleFormDisabled(true);
   };
