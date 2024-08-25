@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 
 import { addCard, changeColumnTitle } from '../../redux/reducers/app/cardsSlice';
 import { selectCards, selectComments, selectUser } from '../../redux/reducers/selectors';
@@ -7,6 +8,41 @@ import Button from '../../uikit/Button/Button';
 import Card from '../Card/Card';
 import Form from '../Form/Form';
 import { getUniqueId } from '../../utils/index';
+
+const ColumnContainer = styled.div`
+  width: 30%;
+  height: 100%;
+  min-height: 250px;
+  background-color: #e1e8f0;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  overflow: scroll;
+`;
+
+const ColumnAddCardBtn = styled.div`
+  padding: 10px;
+
+  &:hover {
+    background-color: $main-text-color;
+    border-radius: 10px;
+    color: $main-bg-color;
+    transition: background-color 0.7s ease-in-out;
+  }
+`;
+
+const ColumnTitleText = styled.div`
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+    font-size: 18px;
+  transition: font-size 0.7s ease-in-out;
+  }
+`;
 
 type ColumnProps = {
   columnTitle: string;
@@ -48,10 +84,10 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
   };
 
   return (
-    <div className="column">
+    <ColumnContainer>
       <Form
         onSubmit={handleSubmitChangeTitle}
-        handleCancel={() => setTitleFormDisabled(false)}
+        handleCancel={() => setTitleFormDisabled(true)}
         type="text"
         placeholder="Enter title"
         name="title"
@@ -83,7 +119,7 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
         styleBtnText="column-add-card-text"
         text="+ Add card"
       />
-    </div>
+    </ColumnContainer>
   );
 };
 

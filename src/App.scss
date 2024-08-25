@@ -85,33 +85,33 @@ img {
 //   gap: 15px;
 // }
 
-.column {
-  width: 30%;
-  height: 100%;
-  min-height: 250px;
-  background-color: $column-bg-color;
-  border-radius: 20px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 20px;
-  overflow: scroll;
-}
+// .column {
+//   width: 30%;
+//   height: 100%;
+//   min-height: 250px;
+//   background-color: $column-bg-color;
+//   border-radius: 20px;
+//   padding: 20px;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   gap: 20px;
+//   overflow: scroll;
+// }
 
-.card {
-  height: auto;
-  border-radius: 20px;
-  background-color: $card-bg-color;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-  justify-content: space-between;
-  cursor: pointer;
-  overflow: hidden;
-  border: 2px solid transparent;
-}
+// .card {
+//   height: auto;
+//   border-radius: 20px;
+//   background-color: $card-bg-color;
+//   display: flex;
+//   flex-direction: column;
+//   width: 100%;
+//   padding: 10px;
+//   justify-content: space-between;
+//   cursor: pointer;
+//   overflow: hidden;
+//   border: 2px solid transparent;
+// }
 
 // .card:hover {
 //   border-color: $card-border-color;
