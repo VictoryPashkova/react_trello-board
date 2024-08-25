@@ -9,7 +9,7 @@ import Card from '../Card/Card';
 import Form from '../Form/Form';
 import { getUniqueId } from '../../utils/index';
 
-const ColumnContainer = styled.div`
+const ColumnContainerStyles = styled.div`
   width: 30%;
   height: 100%;
   min-height: 250px;
@@ -23,18 +23,18 @@ const ColumnContainer = styled.div`
   overflow: scroll;
 `;
 
-const ColumnAddCardBtn = styled.div`
+const ColumnAddCardBtnStyles = styled.div`
   padding: 10px;
 
   &:hover {
-    background-color: $main-text-color;
+    background-color: #374452;
     border-radius: 10px;
-    color: $main-bg-color;
+    color: #f9fafc;
     transition: background-color 0.7s ease-in-out;
   }
 `;
 
-const ColumnTitleText = styled.div`
+const ColumnTitleTextStyles = styled.div`
   font-size: 16px;
   font-weight: 700;
 
@@ -84,7 +84,7 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
   };
 
   return (
-    <ColumnContainer>
+    <ColumnContainerStyles>
       <Form
         onSubmit={handleSubmitChangeTitle}
         handleCancel={() => setTitleFormDisabled(true)}
@@ -93,14 +93,14 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
         name="title"
         isDisabled={titleFormDisabled}
       />
-      <Button
-        isDisabled={!titleFormDisabled}
-        text={columnTitle}
-        styleBtn="column-title-btn"
-        styleBtnText="column-title-text"
-        type="button"
-        handleClick={() => setTitleFormDisabled(false)}
-      />
+      <ColumnTitleTextStyles>
+        <Button
+          isDisabled={!titleFormDisabled}
+          text={columnTitle}
+          type="button"
+          handleClick={() => setTitleFormDisabled(false)}
+        />
+      </ColumnTitleTextStyles>
       {currentColumnCards.map(({ cardId }) => (
         <Card key={cardId} id={cardId} />
       ))}
@@ -112,14 +112,15 @@ const Column: React.FC<ColumnProps> = ({ columnTitle, columnId }) => {
         name="inputNewCard"
         isDisabled={addNewCardFormDisabled}
       />
-      <Button
-        handleClick={() => setAddNewCardFormDisabled(false)}
-        type="button"
-        styleBtn="column-add-card-btn"
-        styleBtnText="column-add-card-text"
-        text="+ Add card"
-      />
-    </ColumnContainer>
+
+      <ColumnAddCardBtnStyles>
+        <Button
+          handleClick={() => setAddNewCardFormDisabled(false)}
+          type="button"
+          text="+ Add card"
+        />
+      </ColumnAddCardBtnStyles>
+    </ColumnContainerStyles>
   );
 };
 
