@@ -31,7 +31,7 @@ type Columns = {
 type Users = {
   userName?: string;
   userColor?: string;
-  userId?: number;
+  userId?: string;
 };
 
 type CardsState = {

@@ -203,7 +203,13 @@ header {
   font-weight: 400;
   line-height: 22px;
   margin-bottom: 10px;
-  width: 90%;
+}
+
+form {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .p-text {
@@ -255,11 +261,11 @@ header {
   width: 70%;
 }
 
-.comment-control {
-  display: flex;
-  gap: 10px;
-  font-size: 12px;
-}
+// .comment-control {
+//   display: flex;
+//   gap: 10px;
+//   font-size: 12px;
+// }
 
 .close {
   position: absolute;
@@ -347,8 +353,13 @@ header {
   color: $main-bg-color;
   padding: 7px;
   border-radius: 10px;
-  width: auto;
+  width: 100%;
   text-align: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 9px;
 }
 
 .card-control-btn {
@@ -427,20 +438,20 @@ header {
   width: 75%;
 }
 
-.user-name-text {
-  font-weight: 700;
-}
+// .user-name-text {
+//   font-weight: 700;
+// }
 
 .card-comments-value::before {
   content: '💬  ';
 }
 
-.comment-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 80%;
-}
+// .comment-item {
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+//   width: 80%;
+// }
 
 .card-text-description {
   width: 80%;
@@ -448,19 +459,19 @@ header {
   font-weight: 300;
 }
 
-.user-comment-item {
-  background-color: $column-bg-color;
-  border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid $modal-form-border;
-  width: 100%;
-  height: auto;
-  overflow: hidden;
-  font-weight: 300;
-  font-size: 80%;
-}
+// .user-comment-item {
+//   background-color: $column-bg-color;
+//   border-radius: 10px;
+//   padding: 10px;
+//   margin-bottom: 10px;
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+//   border: 1px solid $modal-form-border;
+//   width: 100%;
+//   height: auto;
+//   overflow: hidden;
+//   font-weight: 300;
+//   font-size: 80%;
+// }
 
 .delete-btn-text {
   font-size: 80%;
