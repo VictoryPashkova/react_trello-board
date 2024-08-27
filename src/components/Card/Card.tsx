@@ -27,6 +27,9 @@ const UserName = styled.div<{ $bgcolor: string }>`
   margin-top: 5px;
   padding: 5px;
   border-radius: 5px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 `;
 
 const CardStyles = styled.div`
@@ -67,6 +70,15 @@ const CardCommentsValue = styled.p`
   }
 `;
 
+const CardTitleStyles = styled.p`
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  margin-bottom: 10px;
+`;
+
 type CardProps = {
   id: number;
 };
@@ -102,7 +114,7 @@ const Card: React.FC<CardProps> = ({ id }) => {
       </UserAvatar>
       <button onClick={handleOpenCardModal} type="button">
         <div>
-          <p>{currentCard.title}</p>
+          <CardTitleStyles>{currentCard.title}</CardTitleStyles>
           <CardComments>
             <CardCommentsValue>{commentCommentsNumber}</CardCommentsValue>
           </CardComments>
