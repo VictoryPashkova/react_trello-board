@@ -46,8 +46,6 @@ const CommentControlStyles = styled.div`
   font-size: 12px;
 `;
 
-
-
 type CommentProps = {
   userName: string;
   commentText: string;
