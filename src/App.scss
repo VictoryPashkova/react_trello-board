@@ -285,7 +285,11 @@ form {
   background-color: $column-bg-color;
   cursor: pointer;
   padding: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
+
 
 .description-div:hover {
   border: 1px solid $card-border-color;
@@ -319,6 +323,9 @@ form {
   font-size: 20px;
   font-weight: 700;
   height: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .modal-card-content-container {
