@@ -215,6 +215,9 @@ form {
 .p-text {
   font-size: 9px;
   font-weight: 300;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .height {

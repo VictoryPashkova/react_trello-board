@@ -181,7 +181,7 @@ const CardModal: React.FC<CardModalProps> = ({ id }) => {
         />
         <div className="modal-card-comments">
           <div className="modal-card-comments-container">
-            <span className="cardTitle">Actions</span>
+            <span className="cardTitle">Comments</span>
             <div className="card-comments">
               <Form
                 type="text"

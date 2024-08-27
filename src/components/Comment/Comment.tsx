@@ -33,6 +33,9 @@ const UserCommentItemStyles = styled.div<UserCommentItemProps>`
   overflow: hidden;
   font-weight: 300;
   font-size: 80%;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
   
   &.disabled {
     background-color: #e0e0e0;
