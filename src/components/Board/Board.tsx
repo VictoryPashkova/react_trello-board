@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { DragDropContext } from 'react-beautiful-dnd';
 import styled from 'styled-components';
 
 import { selectColumns } from '../../redux/reducers/selectors';
@@ -21,7 +20,6 @@ const Board: React.FC = () => {
   const columns = useSelector(selectColumns);
 
   return (      
-    <DragDropContext onDragEnd={() => {}}>
       <BoardContainer>
         {columns.map(({ columnId, columnTitle }) => {
           if (columnId && columnTitle) {
@@ -29,7 +27,6 @@ const Board: React.FC = () => {
           }
         })}
       </BoardContainer>
-    </DragDropContext>
   );
 };
 
