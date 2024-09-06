@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqueId from 'lodash.uniqueid';
 import Button from '../../../uikit/Button/Button';
@@ -57,22 +57,18 @@ const FormControlStyles = styled.p`
 const WelcomeModal: React.FC = () => {
   const dispatch = useDispatch();
   const welcomeModalState = useSelector(selectModals).welcomeModal;
-  const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
-  const inputRef = useRef<HTMLInputElement>(null);
+  const { register, handleSubmit, formState: { errors }, setFocus } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FormData> = (formData) => {
     const userColor: string = Math.floor(Math.random() * 16777215).toString(16);
-    console.log(userColor);
     dispatch(setModals({ welcomeModal: false, mainModal: false }));
     dispatch(setUser({ userName: formData.userName }));
     dispatch(addNewUser({ userName: formData.userName, userColor, userId: uniqueId('user_') }));
   };
 
   useEffect(() => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  }, [inputRef]);
+    setFocus('userName');
+  }, [setFocus]);
   
   return (
     <ModalContentStyles hidden={!welcomeModalState}>
@@ -86,7 +82,6 @@ const WelcomeModal: React.FC = () => {
             type="text"
             placeholder="Enter your name"
             style={{ borderColor: errors.userName ? errorColor : 'initial' }}
-            ref={inputRef}
           />
           <FormControlStyles>
             <Button styleBtn="form-control-btn" type="submit" text="Save" />
